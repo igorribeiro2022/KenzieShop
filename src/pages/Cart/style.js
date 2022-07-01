@@ -75,7 +75,7 @@ export const DivCart = styled.div`
                     border-radius: 10px;
 
                     height: 35px;
-                    width: 20%;
+                    width: 15%;
                     color: var(--gray-0);
 
                     :hover {
@@ -117,7 +117,6 @@ export const DivCart = styled.div`
 
                 width: 60%;
                 margin: auto;
-
             }
 
             button {
@@ -141,6 +140,49 @@ export const DivCart = styled.div`
                         background-color: #000025;
                     }
                 } 
+        }
+    }
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+
+        h2 {
+            font-size: 15pt;
+        }
+
+        h4 {
+            font-size: 11pt;
+        }
+
+        main {
+            width: 100vw;
+            height: 75vh;
+            overflow-y: auto;
+
+            ul li div {
+                width: 60%;
+            }
+        }
+
+        aside {
+            background-color: ${(props) => props.theme.backgroundColor2};
+            width: 90%;
+            border-radius: 10px;
+            padding: 20px 0;
+            div {
+                height: 120px;
+                
+                div {
+                    width: 90%;
+                    height: 20px;
+                }
+
+                button {
+                    height: 30px;
+                }
+            }
         }
     }
 `

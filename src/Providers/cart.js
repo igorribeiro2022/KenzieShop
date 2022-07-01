@@ -8,14 +8,15 @@ export function CartProvider({ children }) {
     const [cart, setCart] = useState(cartLocal);
 
     function addToCart(item) {
-        setCart([...cart, item]);
         localStorage.setItem("cartAppleStore", JSON.stringify([...cart, item]))
+        setCart([...cart, item]);
     };
 
     function removeFromCart(item) {
         const newcart = cart.filter((prod) => prod.name !== item.name);
-        setCart(newcart);
         localStorage.setItem("cartAppleStore", JSON.stringify(newcart))
+        console.log(newcart)
+        setCart(newcart);
         
     };
 

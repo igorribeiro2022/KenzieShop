@@ -21,8 +21,8 @@ export default function Carrinho() {
           <>
             <main>
               <ul>
-                {cart.map((elem) => (
-                  <li key={elem.id}>
+                {cart.map((elem, index) => (
+                  <li key={index}>
                     <figure>
                       <img src={elem.img} alt={elem.name} />
                     </figure>

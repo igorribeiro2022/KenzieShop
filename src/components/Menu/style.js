@@ -32,6 +32,36 @@ export const Header = styled.header`
 
     padding: 0 25px 10px 25px;
 
+    .buttonThemeMobile {
+        display: none;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+
+        width: 70px;
+
+        p {
+            position: relative;
+            top: 13px;
+            right: 23px;
+            background-color: white;
+            color: black;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 9pt;
+            cursor: pointer;
+        }
+    }
+
     figure {
         height: 95%;
         width: heigth;
@@ -61,8 +91,8 @@ export const Header = styled.header`
         align-items: center;
         list-style: none;
 
-        font-weight:100;
-        font-size: 11pt;
+        font-weight:300;
+        font-size: 10pt;
         margin: auto;
     }
     
@@ -84,6 +114,16 @@ export const Header = styled.header`
         cursor: pointer;
     }
     
+    @media (max-width: 900px) {
+        ul {
+            display: none;
+        }
+        
+        
 
+        .buttonThemeMobile {
+            display: inline;
+        }
+    }
 
 `

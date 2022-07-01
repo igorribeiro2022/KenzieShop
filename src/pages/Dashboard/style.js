@@ -37,7 +37,7 @@ export const Main = styled.main`
 
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-wrap: wrap;
     }
 
@@ -108,4 +108,10 @@ export const Main = styled.main`
         }
     }
 
+    @media (max-width: 600px) {
+        ul {
+            align-items: center;
+            flex-direction: column;
+        }
+    }
 `
