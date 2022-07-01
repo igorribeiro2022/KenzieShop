@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import {addToCartThunk} from "../../store/modules/Cart/thunks";
 import { Main } from "./style";
+import { ProductsContext } from "../../Providers/products";
+import { CartContext } from "../../Providers/cart";
+import { useContext } from "react";
+
 
 export default function Dashboard() {
-  const dispatch = useDispatch();
-  const product = useSelector((indexStore) => indexStore.product);
+
+  const { products } = useContext(ProductsContext);
+  const { addToCart } = useContext(CartContext);
 
   return (
     <motion.div
@@ -18,7 +21,7 @@ export default function Dashboard() {
       <Main>
         
             <ul>
-              {product.map((elem)=> (
+              {products.map((elem)=> (
                 <li key={elem.id}>
                   <figure>
                     <img src={elem.img} alt={elem.name} />
@@ -31,8 +34,8 @@ export default function Dashboard() {
                     <span>Frete Grátis</span>
                   </div>
                   <button onClick={() => {
-                    dispatch(addToCartThunk(elem))
-                    toast.success(`${elem.name} foi adicionado na sacola!`)
+                    addToCart(elem)
+                    toast.info(`${elem.name} foi adicionado na sacola!`, {className: 'black-background'})
                   }}>Colocar na sacola</button>
                 </li>
               ))}

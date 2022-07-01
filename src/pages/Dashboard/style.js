@@ -1,4 +1,25 @@
 import styled from "styled-components";
+import { ToastContainer } from 'react-toastify';
+
+export const StyledToastContainer = styled(ToastContainer).attrs({
+    className: 'toast-container',
+    toastClassName: 'toast',
+    bodyClassName: 'body',
+    progressClassName: 'progress',
+  })`
+    .Toastify__toast-icon {
+        color: #0077ED;
+    }
+
+    button[aria-label="close"] {
+        display: none;
+    }
+   
+    .progress {
+        background-color: #0077ED;
+    }
+  `;
+
 
 export const Main = styled.main`
     display: flex;
@@ -10,6 +31,7 @@ export const Main = styled.main`
     margin: auto;
     padding: 30px 0;
 
+    
     ul {
         list-style: none;
 
@@ -21,7 +43,9 @@ export const Main = styled.main`
 
     li {
         margin: 50px 10px;
-        background-color: white;
+        background-color: ${(props) => props.theme.backgroundColor2};
+        transition: background-color 0.3s linear, color 0.3s linear;
+
         padding: 20px;
 
         border-radius: 10px;

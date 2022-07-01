@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { Bag, Header } from "./style";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { CartContext } from "../../Providers/cart";
+import { useContext } from "react";
 
-export function Menu() {
+export function Menu({getOpositeTheme}) {
     const navigate = useNavigate();
-    const products = useSelector(store => store.cart)
+    const {cart} = useContext(CartContext)
 
     return (
         <>
@@ -14,7 +15,7 @@ export function Menu() {
                 <img src="./apple.ico" alt="Apple" onClick={() => navigate("../", { replace: true })}/>
             </figure>
             <ul>
-                <li>Loja</li>
+                <li onClick={() => navigate("../", { replace: true })}>Loja</li>
                 <li>Mac</li>
                 <li>iPad</li>
                 <li>iPhone</li>
@@ -24,10 +25,11 @@ export function Menu() {
                 <li>Só na Apple</li>
                 <li>Acessórios</li>
                 <li>Suporte</li>
+                <li><button onClick={getOpositeTheme}>Tema</button></li>
             </ul>
             
             <Bag onClick={() => navigate("../carrinho", { replace: true })} />
-            {products?.length > 0 ? <p>{products.length}</p> : <></>}
+            {cart?.length > 0 ? <p>{cart.length}</p> : <></>}
         </Header>
         <Outlet/>
         </>

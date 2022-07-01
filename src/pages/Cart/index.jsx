@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { removeFromCartThunk } from "../../store/modules/Cart/thunks";
 import { DivCart, Section } from "./style";
+import { CartContext } from "../../Providers/cart";
+import { useContext } from "react";
 
 export default function Carrinho() {
-  const dispatch = useDispatch();
-  const produtosNaSacola = useSelector((store) => store.cart);
+  const { cart, removeFromCart } = useContext(CartContext)
+  
 
-  const valorTotal = produtosNaSacola.reduce((acc, acm) => acc + acm.price, 0);
+  const valorTotal = cart.reduce((acc, acm) => acc + acm.price, 0);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,11 +17,11 @@ export default function Carrinho() {
       transition={{ duration: 0.5 }}
     >
       <DivCart>
-        {produtosNaSacola?.length > 0 ? (
+        {cart?.length > 0 ? (
           <>
             <main>
               <ul>
-                {produtosNaSacola.map((elem) => (
+                {cart.map((elem) => (
                   <li key={elem.id}>
                     <figure>
                       <img src={elem.img} alt={elem.name} />
@@ -40,8 +40,8 @@ export default function Carrinho() {
                     </div>
                     <button
                       onClick={() => {
-                        dispatch(removeFromCartThunk(elem));
-                        toast.success(`${elem.name} foi removido da sacola!`);
+                        removeFromCart(elem)
+                        toast.info(`${elem.name} foi removido da sacola!`);
                       }}
                     >
                       Remover da sacola
@@ -54,7 +54,7 @@ export default function Carrinho() {
               <div>
                 <h2>Resumo do pedido</h2>
                 <div>
-                  <p>{produtosNaSacola.length} produtos</p>
+                  <p>{cart.length} produtos</p>
                   <p>
                     {valorTotal.toLocaleString("pt-BR", {
                       style: "currency",

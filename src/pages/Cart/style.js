@@ -26,6 +26,8 @@ export const DivCart = styled.div`
             li {
                 width: 90%;
                 margin: 20px auto;
+                
+                transition: background-color 0.5s linear, color 0.5s linear;
 
                 display: flex;
                 flex-direction: row;
@@ -39,7 +41,7 @@ export const DivCart = styled.div`
 
                     overflow: hidden;
 
-                    background-color: white;
+                    background-color: ${(props) => props.theme.backgroundColor2};
                     border-radius: 10px;
 
                     display: flex;

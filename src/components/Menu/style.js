@@ -20,7 +20,8 @@ export const Bag = styled(Sacola)`
 `
 
 export const Header = styled.header`
-position: fixed;
+
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -65,6 +66,18 @@ position: fixed;
         margin: auto;
     }
     
+    button {
+        width: 40px;
+        height: 20px;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        background-color: ${(props) => props.theme.backgroundColor2};
+        color: ${(props) => props.theme.color};
+        transition: background-color 0.3s linear, color 0.3s linear;
+
+    }
+
     li:hover {
         transition: all .3s;
         color: var(--gray-1);
