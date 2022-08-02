@@ -105,7 +105,6 @@ export const Header = styled.header`
         background-color: ${(props) => props.theme.backgroundColor2};
         color: ${(props) => props.theme.color};
         transition: background-color 0.3s linear, color 0.3s linear;
-
     }
 
     li:hover {
@@ -119,11 +118,8 @@ export const Header = styled.header`
             display: none;
         }
         
-        
-
         .buttonThemeMobile {
             display: inline;
         }
     }
-
 `

@@ -39,7 +39,7 @@ export function Menu() {
         <button className="buttonThemeMobile" onClick={getOpositeTheme}>Tema</button>
         <div>
           <Bag onClick={() => navigate("../carrinho", { replace: true })} />
-          {cart?.length > 0 ? <p>{cart.length}</p> : <></>}
+          {cart?.length > 0 && <p>{cart.length}</p>}
         </div>
       </Header>
       <Outlet />
