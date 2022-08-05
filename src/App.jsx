@@ -9,7 +9,6 @@ import { ThemeProvider } from "styled-components";
 import { StyledToastContainer } from "./pages/Dashboard/style";
 
 function App() {
-  
   const { currentTheme } = useContext(ThemeContext);
   
   return (
