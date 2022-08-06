@@ -10,7 +10,6 @@ import { StyledToastContainer } from "./pages/Dashboard/style";
 
 function App() {
   const { currentTheme } = useContext(ThemeContext);
-  
   return (
     <ThemeProvider theme={themes[currentTheme]} >
       <div>
@@ -28,7 +27,6 @@ function App() {
           draggable
           pauseOnHover
           transition={Slide}
-          
         />
       </div>
     </ThemeProvider>
